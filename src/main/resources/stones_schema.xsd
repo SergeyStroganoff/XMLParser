@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- XML Schema Generated from XML Document on Mon Oct 04 2021 20:07:33 GMT+0300 (Москва, стандартное время) -->
+<!-- XML Schema Generated on Mon Oct 04 2021 21:30:33 GMT+0300 (Москва, стандартное время) -->
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="https://example.com/gem" version="1.0"
         xmlns:xs="https://example.com/gem"
@@ -9,7 +9,7 @@
             <sequence>
                 <element name="gem"
                          type="xs:Gem"
-                         minOccurs="1"
+                         minOccurs="2"
                          maxOccurs="unbounded"/>
             </sequence>
         </complexType>
@@ -21,7 +21,7 @@
             <element name="preciousness" type="xs:Preciousness"/>
             <element name="miningLocation" type="string"/>
             <element name="visualParameters" type="xs:VisualParameters"/>
-
+            <element name="stoneWeight" type="double"/>
         </sequence>
     </complexType>
 
@@ -39,7 +39,6 @@
     </simpleType>
 
     <simpleType name="Color">
-
         <restriction base="string">
             <enumeration value="YELLOW"/>
             <enumeration value="RED"/>
@@ -53,9 +52,21 @@
         </restriction>
     </simpleType>
 
-
     <complexType name="VisualParameters">
-
-
+        <sequence>
+            <element name="transparency" type="xs:Transparency"/>
+            <element name="color" type="xs:Color"/>
+            <element name="facesNumber" type="positiveInteger"/>
+        </sequence>
     </complexType>
+
+    <simpleType name="Transparency">
+        <restriction base="string">
+            <enumeration value="TRANSPARENT"/>
+            <enumeration value="CRYSTAL_CLEAR"/>
+            <enumeration value="TRANSLUCENT"/>
+            <enumeration value="OPAQUE"/>
+        </restriction>
+
+    </simpleType>
 </schema>
