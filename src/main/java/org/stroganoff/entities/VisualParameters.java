@@ -1,21 +1,21 @@
 package org.stroganoff.entities;
 
-import java.util.ArrayList;
+import java.awt.Color;
 
 public class VisualParameters {
 
     private final String transparency;
-    private ArrayList<String> colors = new ArrayList<>();
+    private Color color;
     private int facesNumber;
 
-    public VisualParameters(ArrayList<String> colors, String transparency, int facesNumber) {
-        this.colors = colors;
+    public VisualParameters(Color color, String transparency, int facesNumber) {
+        this.color = color;
         this.transparency = transparency;
         this.facesNumber = facesNumber;
     }
 
-    public ArrayList<String> getColors() {
-        return colors;
+    public Color getColor() {
+        return color;
     }
 
     public String getTransparency() {
@@ -26,7 +26,4 @@ public class VisualParameters {
         return facesNumber;
     }
 
-    public void addColor(String color) {
-        colors.add(color);
-    }
 }
