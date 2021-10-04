@@ -10,18 +10,27 @@
                 <element name="gem"
                          type="xs:Gem"
                          minOccurs="1"
-                         maxOccurs="unbounded" />
+                         maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
-    
+
     <complexType name="Gem">
         <sequence>
-         <element name="name"   type="string"/>
-         <element name="preciousness"   type="xs:Preciousness"/>
-            
+            <element name="name" type="xs:GemName"/>
+            <element name="preciousness" type="xs:Preciousness"/>
+            <element name="miningLocation" type="string"/>
+            <element name="visualParameters" type="xs:VisualParameters"/>
+
         </sequence>
     </complexType>
+
+    <simpleType name="GemName">
+        <restriction base="string">
+            <pattern value="([a-zA-z]{3,12})"/>
+        </restriction>
+    </simpleType>
+
     <simpleType name="Preciousness">
         <restriction base="string">
             <enumeration value="PRECIOUS"/>
@@ -29,5 +38,24 @@
         </restriction>
     </simpleType>
 
-    
+    <simpleType name="Color">
+
+        <restriction base="string">
+            <enumeration value="YELLOW"/>
+            <enumeration value="RED"/>
+            <enumeration value="GREEN"/>
+            <enumeration value="BLUE"/>
+            <enumeration value="GRAY"/>
+            <enumeration value="CYAN"/>
+            <enumeration value="BLACK"/>
+            <enumeration value="MAGENTA"/>
+            <enumeration value="NOT_DEFINE"/>
+        </restriction>
+    </simpleType>
+
+
+    <complexType name="VisualParameters">
+
+
+    </complexType>
 </schema>

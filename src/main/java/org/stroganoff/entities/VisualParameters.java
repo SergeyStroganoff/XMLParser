@@ -4,11 +4,11 @@ import java.awt.Color;
 
 public class VisualParameters {
 
-    private final String transparency;
-    private Color color;
-    private int facesNumber;
+    private final Transparency transparency;
+    private final Color color;
+    private final int facesNumber;
 
-    public VisualParameters(Color color, String transparency, int facesNumber) {
+    public VisualParameters(Color color, Transparency transparency, int facesNumber) {
         this.color = color;
         this.transparency = transparency;
         this.facesNumber = facesNumber;
@@ -18,7 +18,7 @@ public class VisualParameters {
         return color;
     }
 
-    public String getTransparency() {
+    public Transparency getTransparency() {
         return transparency;
     }
 
