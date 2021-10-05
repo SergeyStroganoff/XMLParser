@@ -8,8 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class UserInterface implements IUserInterface {
-
-    private static final String INPUT_MESSAGE = "Введите в терминале ";
     private static final Logger logger = Logger.getLogger(UserInterface.class);
 
     @Override
@@ -27,6 +25,6 @@ public class UserInterface implements IUserInterface {
 
     @Override
     public void showMessage(String inputMessagePartTwo) {
-        System.out.println(INPUT_MESSAGE + inputMessagePartTwo);
+        System.out.println(inputMessagePartTwo);
     }
 }

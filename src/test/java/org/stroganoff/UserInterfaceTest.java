@@ -42,7 +42,7 @@ class UserInterfaceTest {
         PrintStream oldStream = System.out;
         System.setOut(printStream);
         // WHEN
-        userInterface.showMessage("");
+        userInterface.showMessage(TEST_STRING);
         String actual = bos.toString(StandardCharsets.UTF_8);
         System.setOut(oldStream);
         // THEN
