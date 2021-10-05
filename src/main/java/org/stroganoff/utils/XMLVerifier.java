@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class XMLVerifier implements XMLVerification {
     private final Logger logger = Logger.getLogger(XMLVerifier.class);
-    String logFilename;
+    private final String logFilename;
 
     public XMLVerifier(String logFilename) {
         this.logFilename = logFilename;
