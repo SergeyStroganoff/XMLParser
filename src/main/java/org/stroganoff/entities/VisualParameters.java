@@ -1,20 +1,18 @@
 package org.stroganoff.entities;
 
-import java.awt.Color;
-
 public class VisualParameters {
 
     private final Transparency transparency;
-    private final Color color;
+    private final org.stroganoff.entities.Color color;
     private final int facesNumber;
 
-    public VisualParameters(Color color, Transparency transparency, int facesNumber) {
+    public VisualParameters(org.stroganoff.entities.Color color, Transparency transparency, int facesNumber) {
         this.color = color;
         this.transparency = transparency;
         this.facesNumber = facesNumber;
     }
 
-    public Color getColor() {
+    public org.stroganoff.entities.Color getColor() {
         return color;
     }
 
@@ -26,4 +24,12 @@ public class VisualParameters {
         return facesNumber;
     }
 
+    @Override
+    public String toString() {
+        return "VisualParameters{" +
+                "transparency=" + transparency +
+                ", color=" + color +
+                ", facesNumber=" + facesNumber +
+                '}';
+    }
 }

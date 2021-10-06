@@ -1,6 +1,8 @@
 package org.stroganoff.utils;
 
+import org.stroganoff.entities.Gem;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -30,16 +32,16 @@ public class XMLParserDOM {
         return document.getDocumentElement().getElementsByTagName(elementTagName);
     }
 
-    public <T> List<T> elementCollect(NodeList nodeList) {
-        List<T> tList = new ArrayList<>();
-
+    public List<Gem> gemCollect(NodeList nodeList, IEntityBuilder builder) {
+        List<Gem> gemList = new ArrayList<>();
         for (int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-            System.out.println(node.getNodeValue());
-            System.out.println(node.getNodeName());
-            String content = node.getTextContent().replace("\n"," ").trim();
-            System.out.println(content.replaceAll("\\s{2,}","^"));
+           // Node node = nodeList.item(i);
+           // String content = node.getTextContent().replace("\n"," ").trim();
+           // System.out.println(content.replaceAll("\\s{2,}","^"));
+            Element gemElement = (Element) nodeList.item(i);
+            Gem gem = builder.buildGem(gemElement);
+            gemList.add(gem);
         }
-        return tList;
+        return gemList;
     }
 }

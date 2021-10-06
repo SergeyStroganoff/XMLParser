@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.stroganoff.entities.Gem;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -58,10 +59,11 @@ class XMLParserDOMTest {
         int expectedLength = 4;
         Document document = xmlParserDOM.getXMLDocument(xmlFilePath);
         NodeList nodeList = xmlParserDOM.getNodeListByElementName(document, element);
+        IEntityBuilder builder = new GemBuilder();
         // WHEN
-        List<Object> list = xmlParserDOM.elementCollect(nodeList);
-
+        List<Gem> list = xmlParserDOM.gemCollect(nodeList, builder);
+        list.forEach(System.out::println);
         // THEN
-        Assertions.assertNotNull(list);
+        Assertions.assertEquals(expectedLength, list.size());
     }
 }

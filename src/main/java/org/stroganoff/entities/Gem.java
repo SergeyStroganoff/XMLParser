@@ -43,4 +43,16 @@ public class Gem {
     public double getStoneWeight() {
         return stoneWeight;
     }
+
+
+    @Override
+    public String toString() {
+        return "Gem{" +
+                "name='" + name + '\'' +
+                ", preciousness=" + preciousness +
+                ", miningLocation='" + miningLocation + '\'' +
+                ", visualParameters=" + visualParameters +
+                ", stoneWeight=" + stoneWeight +
+                '}';
+    }
 }
